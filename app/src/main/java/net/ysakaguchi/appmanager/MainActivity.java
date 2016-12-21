@@ -21,10 +21,8 @@ public class MainActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         ArrayList<String> array = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            array.add("A");
-            array.add("B");
-            array.add("C");
+        for (int i = 0; i < 100; i++) {
+            array.add("name " + i);
         }
 
         adapter = new RecyclerAdapter(this, array, new RecyclerAdapter.OnRecyclerListener() {
@@ -34,6 +32,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         binding.recyclerView.setAdapter(adapter);
-
+        binding.recyclerView.setLayoutManager(new AppLayoutManager());
     }
 }
